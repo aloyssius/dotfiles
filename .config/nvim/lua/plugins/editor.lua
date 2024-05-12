@@ -67,23 +67,33 @@ return {
 				end,
 				desc = "Find Plugin File",
 			},
+			-- {
+			-- 	";f",
+			-- 	function()
+			-- 		local builtin = require("telescope.builtin")
+			-- 		builtin.find_files({
+			-- 			no_ignore = false,
+			--        })
+			-- 	end,
+			-- 	desc = "Lists files in your current working directory, respects .gitignore",
+			-- },
 			{
-				";f",
+				";o",
 				function()
 					local builtin = require("telescope.builtin")
-					builtin.find_files({
+					builtin.oldfiles({
 						no_ignore = false,
 						hidden = true,
 					})
 				end,
-				desc = "Lists files in your current working directory, respects .gitignore",
+				desc = "Lists oldfiles",
 			},
 			{
 				";r",
 				function()
 					local builtin = require("telescope.builtin")
 					builtin.live_grep({
-						additional_args = { "--hidden" },
+						-- additional_args = { "--hidden" },
 					})
 				end,
 				desc = "Search for a string in your current working directory and get results live as you type, respects .gitignore",
@@ -97,7 +107,7 @@ return {
 				desc = "Lists open buffers",
 			},
 			{
-				";t",
+				";h",
 				function()
 					local builtin = require("telescope.builtin")
 					builtin.help_tags()
@@ -108,9 +118,25 @@ return {
 				";;",
 				function()
 					local builtin = require("telescope.builtin")
-					builtin.resume()
+					builtin.treesitter()
 				end,
-				desc = "Resume the previous telescope picker",
+				desc = "Lists Function names, variables, from Treesitter",
+			},
+			{
+				";s",
+				function()
+					local builtin = require("telescope.builtin")
+					builtin.search_history()
+				end,
+				desc = "Lists search_history",
+			},
+			{
+				";k",
+				function()
+					local builtin = require("telescope.builtin")
+					builtin.keymaps()
+				end,
+				desc = "Lists keymaps",
 			},
 			{
 				";e",
@@ -119,14 +145,6 @@ return {
 					builtin.diagnostics()
 				end,
 				desc = "Lists Diagnostics for all open buffers or a specific buffer",
-			},
-			{
-				";s",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.treesitter()
-				end,
-				desc = "Lists Function names, variables, from Treesitter",
 			},
 			{
 				"sf",

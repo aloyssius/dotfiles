@@ -108,7 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias v='nvim'
-alias ls='eza -l --icons --git -la'
+alias ls='eza -l --icons -la'
 alias lt='eza --tree'
 alias ll='eza --grid --icons -la'
 
@@ -121,6 +121,8 @@ tmux split-window -v -p 30
 tmux split-window -h -p 66
 tmux split-window -h -p 50
 '
+
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 export NVM_DIR="/home/aloysius/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
